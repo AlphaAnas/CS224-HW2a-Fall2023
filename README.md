@@ -13,6 +13,8 @@
     - For MacOS:
   	`clang++ *.cpp -o ghostbuster.out -I/Library/Frameworks/SDL2.framework/Headers -I/Libaray/Frameworks/SDL2_image.framework/Headers -F/Library/Frameworks -framework SDL2 -framework SDL2_image`
 
+	<span style="color:red"> Note: Mac users will have to change the `#include` statements in the `.cpp` files. For example, if the include statement is `#include <SDL.h>`, it should be changed to `#include <SDL2/SDL.h>`, and similarly `<SDL_image.h>` should be changed to `<SDL2_image/SDL_image.h>`
+
 - Run the game by this command:
 
 	- For Windows:
