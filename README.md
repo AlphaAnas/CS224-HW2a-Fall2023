@@ -1,4 +1,4 @@
-# To compile your .cpp files you have the following options
+# To compile your .cpp files you have the following options (you can opt for either of the two):
 
 ## 1. Build code using the g++ compiler directly
 
