@@ -3,7 +3,9 @@
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
+#include <random>
 
+//g++ *.cpp -IC:\mingw_dev_lib\include\SDL2 -LC:\mingw_dev_lib\lib -w -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -o ghostbuster.exe
 using namespace std;
 
 // Currently rows and columns are set to 8, however your game implementation should work for any other number
@@ -63,6 +65,18 @@ void drawBlocks(SDL_Renderer* renderer, SDL_Texture* texture){
 bool ended = false;
 
 void initialize(){
+    char grid[rows*cols];   // initialize the grid.
+    for(int i=0;i<rows*cols;i++)
+    {
+        grid[i]='L';  // initialize each value with 'L' or to show lock
+        
+    }
+  
+    srand(time(NULL)); // this ensures random number generated is different every time
+    ghostRow= rand()%rows;
+    ghostCol=rand()%cols;
+    
+
     // Create memory for grid here, it should be one dimensional array.
     // The memory should be rows*cols size.
     // Initialize entire grid with 'L' so that locks are displayed all over
@@ -76,6 +90,8 @@ void huntGhost(int x, int y){
     // this function is called every time you click on the screen
     // x, y are screen coordinates, you need to identify the block from these coordinates and using screen width and height values
     // each block size is width/cols x height/rows
+
+
     // according to game rules you need to put appropriate character in the grid for that block
     // Place 'S' to draw a snake
     // place 'T' to draw a turtle
